@@ -1,0 +1,23 @@
+{% load static %}
+
+<html>
+    <head>
+        
+    </head>
+
+    <body>
+        <form action="/noteForm/" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+        <input type="submit">
+        </form>
+            <ul>
+                {% for note in notes %}
+                    <li>
+                        <p>Note: {{note.text}}</p>
+                        <p>Date: {{note.date}}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+    </body>
+</html>
